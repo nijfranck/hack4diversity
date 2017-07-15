@@ -1,0 +1,22 @@
+{
+  "name": "hack4diversity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nijfranck/hack4diversity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nijfranck/hack4diversity/issues"
+  },
+  "homepage": "https://github.com/nijfranck/hack4diversity#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
