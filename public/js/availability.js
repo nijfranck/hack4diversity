@@ -31,5 +31,6 @@ $("#addThisAvailability").click(function() {
   clearInputs();
   fadeMessage();
   availabilityArray.push(dateInfo);
+  console.log(availabilityArray);
   // Pull information from the start and end input fields
 });

@@ -29,7 +29,7 @@ module.exports = function(app, express) {
 	});
 
 	apiRouter.get('/', function(req, res) {
-		res.json({message: 'LendBuddy API'});
+		res.json({message: 'Interview-me'});
 	});
 
 	apiRouter.route('/events')
@@ -59,6 +59,7 @@ module.exports = function(app, express) {
 				eventer.topic = req.body.topic;
 				eventer.role = req.body.role;
 				eventer.langInterview = req.body.langInterview;
+				eventer.lingua = "English";
 				eventer.starting = times[i];
 				eventerList.push(eventer);
 				console.log(eventerList);
