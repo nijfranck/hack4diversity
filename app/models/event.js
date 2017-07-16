@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var EventSchema = new Schema({
 	event_id: {type: Number, require: true},
 	creator: {type: String, required: true}, //username google
-	starting: {type: Date, required: true}, //beginning of event
+	starting: {type: Array, required: true}, //beginning of events
 	active: {type: Boolean, required: true}, //isEvent still active
 	topic: {type: String, required: true}, // topic of the interview: design, data structure, case interview
 	role: {type: String, require: true}, //interviewer or interviewee
