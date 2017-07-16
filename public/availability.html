@@ -46,7 +46,7 @@
       <div class="ui centered aligned grid two column">
         <div class="ui form">
           <div class="row">
-            <div class="fields centered aligned column"> 
+            <div class="fields ui grid centered aligned three column"> 
               <div class="field column">
                 <label><font color="white">Start Date</font></label>
                 <div class="ui calendar" id="rangeStart">
@@ -66,6 +66,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="field column">
                 <button id = "add-button" class="ui button" id="addThisAvailability" ng-click="add()">Add This Availability</button>
               </div>
@@ -79,7 +80,7 @@
                 <fieldset>
                   <select name="role" id="role">
                     <option>Interviewer</option>
-                    <option>Interviewee</option>
+                    <option selected="selected">Interviewee</option>
                   </select>
                 </fieldset>
               </div>
