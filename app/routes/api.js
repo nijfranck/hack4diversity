@@ -6,8 +6,7 @@ var mongoose	= require('mongoose');
 function matching_event(myevent, eventList) {
 	var matches = [];
 	for (var j = 0; eventList.length; j++){
-		console.log(eventList[j].starting, myevent.starting);
-		if (eventList[j].starting == myevent.starting)
+		if (eventList[j] != "" && eventList[j].starting[0] == myevent.starting[0])
 				return eventList[j];
 		}
 	return {};
@@ -85,7 +84,7 @@ module.exports = function(app, express) {
 
 		.post(function(req, res) {
 			Event.find(function(err, events) {
-				console.log(events);
+				console.log('aaaaaaa', req.body);
 				var match = matching_event(req.body, events);
 				console.log(match);
 				res.json({data: match});
