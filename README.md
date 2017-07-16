@@ -11,16 +11,16 @@ MongoDB
 Google API
 
 # front-end
-JQuery
-AngularJS
+JQuery <br />
+AngularJS <br />
 
 # matching-algorithm-parameters
-Available times
-Programming language
-Interview/Interviewee
-Language spoken
-Type of technical interview
-Unbiased
+Available times <br />
+Programming language <br />
+Interview/Interviewee <br />
+Language spoken <br />
+Type of technical interview <br />
+Unbiased <br />
 
 
 
