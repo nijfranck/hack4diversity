@@ -49,6 +49,8 @@ module.exports = function(app, express) {
 			
 			var eventerList = []
 			var times = req.body.startings;
+			console.log('times: ');
+			console.log(times);
 			
 			for (var i = 0; i < times.length; i++) {
 				var eventer = new Event();
