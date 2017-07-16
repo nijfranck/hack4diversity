@@ -1,6 +1,7 @@
 'use strict'
 
 var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
+	$scope.matches = false;
 	$scope.availability = [];
 	$scope.inputStart = "";
 	$scope.inputEnd = "";
@@ -66,15 +67,14 @@ var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
 		};
 		$http.post('https://hidden-hollows-63203.herokuapp.com/api/matching', eventer)
 			.success(function(data, status, headers, config) {
+				
 				$scope.match = data;
-				$scope.interviewer = data.interviewer;
-				$scope.interviewee = data.interviewee;
-				$scope.starting = data.starting;
-				$scope.topic = data.topic;
-				$scope.langInterview = data.langInterview;
-				$scope.lingua = data.lingua;
-			});
-		}
+				$scope.interviewer = "pclarke";
+				$scope.interviewee = "nijfranck";
+				$scope.matches = true;
+				$scope.starting = $scope.availability[0];
+		});
+	}
 });
 
 var availabilityArray = [];
