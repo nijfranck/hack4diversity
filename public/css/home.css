@@ -1,6 +1,6 @@
 
 div.header {
-  background-color: #c6dcff;
+  background-color: #680000;
   text-align: center; 
   color: white;
   min-height: 200px;
@@ -10,25 +10,25 @@ div.header {
   padding: 3em;
 }
 
-div.main-message {
+ div.main-message {
   text-align: center;
-}
+  margin-top: 5em;
+} 
 
-div.login-container {
+ div.login-container {
+  padding-top: 3em;
+  color: white;
+  font-weight: bold;
+} 
+
+div.button-wrapper {
+  min-width: 100px;
+  max-width: 200px;
   text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding-bottom: 10rem;
 }
 
 button.btn-login {
-  vertical-align: middle;
-  background-color: #008418;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  width: 100px;
+  background-color: #008418;  
 }
 
 button.btn-login:hover {
