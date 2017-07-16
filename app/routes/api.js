@@ -3,18 +3,11 @@
 var Event = require('../models/event.js');
 var mongoose	= require('mongoose');
 
-var eventer = {
-			creator: $scope.username,
-			topic: $scope.topic,
-			role: $scope.role,
-			langInterview: $scope.langInterview,
-			starting: $scope.availability
-		};
 function matching_event(myevent, eventList) {
 	var matches = [];
 	for (var j = 0; eventList.length; j++){
 		if (eventList[j].starting[0] == myevent.starting[0])
-				return eventerList[j];
+				return eventList[j];
 		}
 	}
 	return {}
