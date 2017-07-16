@@ -65,7 +65,7 @@ module.exports = function(app, express) {
 				console.log(eventerList);
 				eventer.save(function(err) {
 					if (err) {
-						return res.send(err);
+						console.log(err);
 					}
 					console.log({message: "Event posted", event_id: eventer._id})
 				});
