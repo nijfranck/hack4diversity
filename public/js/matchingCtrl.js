@@ -68,11 +68,7 @@ var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
 		$http.post('https://hidden-hollows-63203.herokuapp.com/api/matching', eventer)
 			.success(function(data, status, headers, config) {
 				
-				$scope.match = data;
-				$scope.interviewer = "pclarke";
-				$scope.interviewee = "nijfranck";
-				$scope.matches = true;
-				$scope.starting = $scope.availability[0];
+				console.log(data);
 		});
 	}
 });

@@ -3,10 +3,21 @@
 var Event = require('../models/event.js');
 var mongoose	= require('mongoose');
 
-function matching_event(myevents, eventList) {
+var eventer = {
+			creator: $scope.username,
+			topic: $scope.topic,
+			role: $scope.role,
+			langInterview: $scope.langInterview,
+			starting: $scope.availability
+		};
+function matching_event(myevent, eventList) {
 	var matches = [];
-	console.log(myevents, eventList);
-	return eventList[0];
+	for (var j = 0; eventList.length; j++){
+		if (eventList[j].starting[0] == myevent.starting[0])
+				return eventerList[j];
+		}
+	}
+	return {}
 }
 module.exports = function(app, express) {
 
@@ -83,6 +94,7 @@ module.exports = function(app, express) {
 			Event.find(function(err, events) {
 				console.log(events);
 				var match = matching_event(req.body, events);
+				console.log(match);
 				res.json({data: match});
 			});
 			
