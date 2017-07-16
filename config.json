@@ -1,0 +1,11 @@
+{
+	"GCLOUD_PROJECT": "hack4diversity-173822",
+	"DATA_BACKEND": "mongodb",
+	"MONGO_URL": "mongodb://heroku_qbb06v3z:1sbtg7bujb0ijju5fjv074s47m@ds161162.mlab.com:61162/heroku_qbb06v3z",
+	"MONGO_COLLECTION": "books",
+	"CLOUD_BUCKET": "hack4diversity-173822",
+	"OAUTH2_CLIENT_ID": "121221764954-1cn7m474im5lannefk7h5losbfbrehed.apps.googleusercontent.com",
+	"OAUTH2_CLIENT_SECRET": "q1oz5cAHl9T3XBLPBo5p_T05",
+	"OAUTH2_CALLBACK": "http://hack4diversity-173822.appspot.com/auth/google/callback",
+	"MEMCACHE_URL": "memcached-12186.c10.us-east-1-4.ec2.cloud.redislabs.com:12186"
+}
