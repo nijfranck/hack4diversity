@@ -5,10 +5,7 @@ var mongoose	= require('mongoose');
 
 function matching_event(myevent, eventList) {
 	var matches = [];
-	for (var j = 0; eventList.length; j++){
-		if (eventList[j].creator != myevent.creator && eventList[j].starting === myevent.starting)
-				return eventList[j];
-		}
+	
 	return eventList[0];
 }
 module.exports = function(app, express) {
