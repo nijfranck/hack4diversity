@@ -98,6 +98,7 @@ module.exports = function(app, express) {
 				console.log(events);
 				console.log('Match: ')
 				var match = matching_event(req.body, events);
+				console.log(match);
 			});
 			res.json({data: match})
 		});
