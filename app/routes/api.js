@@ -7,12 +7,7 @@ function matching_event(myevents, eventList) {
 	var matches = [];
 	for (var j = 0; j < myevents.length; j++){
 		for (var i = 0; i < eventList.length; i++){
-			if (eventList[i].active && eventList[i].creator != myevents[j].creator 
-			&& eventList[i].topic == myevents[j].topic 
-			&& eventList[i].starting == myevents[j].starting
-			&& eventList[i].role != myevents[j].role
-			&& eventList[i].langInterview == myevents[j].langInterview
-			&& eventList[i].lingua == myevents[j].lingua){
+			if (eventList[i].active){
 				console.log(eventList[i]);
 				return eventList[i];
 			}
