@@ -13,3 +13,13 @@ div.errorMessage {
 div.successMessage {
   color: green;
 }
+
+fieldset {
+  border: 0;
+}
+
+label {
+  display: block;
+  margin: 30px 0 0 0;
+  font-weight: bold;
+}
