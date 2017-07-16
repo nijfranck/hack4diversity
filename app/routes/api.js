@@ -5,16 +5,13 @@ var mongoose	= require('mongoose');
 
 function matching_event(myevents, eventList) {
 	var matches = [];
-	for (var j = 0; j < myevents.length; j++){
-		for (var i = 0; i < eventList.length; i++){
-			if (true){
-				console.log(eventList[i]);
-				return eventList[i];
-			}
-		}
+	console.log(myevents, eventList);
+	for (var j = 0; j < eventList.length; j++){
+		if (eventList[j].starting[0] == myevents[0].starting[0])
+			return eventList[j]
 
 	}
-	return "empty";
+	return ;
 }
 module.exports = function(app, express) {
 
@@ -88,11 +85,9 @@ module.exports = function(app, express) {
 		// return all the tentative sessions created
 
 		.post(function(req, res) {
-			console.log(req.body);
 			Event.find(function(err, events) {
 				console.log(events);
 				var match = matching_event(req.body, events);
-				console.log(match);
 				res.json({data: match});
 			});
 			
