@@ -100,7 +100,7 @@ module.exports = function(app, express) {
 				var match = matching_event(req.body, events);
 				console.log(match);
 			});
-			res.json({data: match})
+			res.json({});
 		});
 	return apiRouter;
 }
