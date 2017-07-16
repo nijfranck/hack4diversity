@@ -9,8 +9,7 @@ function matching_event(myevent, eventList) {
 		if (eventList[j].starting[0] == myevent.starting[0])
 				return eventList[j];
 		}
-	}
-	return {}
+	return {};
 }
 module.exports = function(app, express) {
 
