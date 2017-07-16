@@ -1,0 +1,76 @@
+<html
+
+<head>
+    <title>Demo: Getting an email address using the Google+ Sign-in button</title>
+    <!-- Include the API client and Google+ client. -->
+    <script src = "https://plus.google.com/js/client:platform.js" async defer></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <!-- Container with the Sign-In button. -->
+    <div id='hideMe'>
+      <img id = 'loading' src="giphy-downsized.gif">
+    </div>
+    <div id="gConnect" class="button">
+      <button id = "sign-in" class="g-signin"
+          data-scope="email"
+          data-clientid="423565732644-62he0mhf3nbh5ce816mldekdnub6tvf4.apps.googleusercontent.com"
+          data-callback="onSignInCallback"
+          data-theme="dark"
+          data-cookiepolicy="single_host_origin">
+      SIGN IN</button>
+      <!-- Textarea for outputting data -->
+      <p id = "greeting" > </p>
+      <div id="response" style="display: none;" class="hide">
+        
+        <img id="profile-pic" src="">
+        <button id = "schedule"> Schedule Interview </button>
+        <button id = "profile"> View Your Profile </button>
+
+      </div>
+
+    </div>
+ </body>
+
+  <script>
+  /**
+   * Handler for the signin callback triggered after the user selects an account.
+   */
+  function onSignInCallback(resp) {
+    gapi.client.load('plus', 'v1', apiClientLoaded);
+  }
+
+  /**
+   * Sets up an API call after the Google API client loads.
+   */
+  function apiClientLoaded() {
+    gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
+  }
+
+  /**
+   * Response callback for when the API client receives a response.
+   *
+   * @param resp The API response object with the user email and profile information.
+   */
+  function handleEmailResponse(resp) {
+    document.getElementById('sign-in').style.display = "none";
+    var response = document.getElementById('response');
+    response.style.display = "flex";
+    response.style.transitionDelay="10s";
+    document.getElementById('gConnect').style.transitionDelay="10s";
+    var primaryEmail;
+    for (var i=0; i < resp.emails.length; i++) {
+      if (resp.emails[i].type === 'account') primaryEmail = resp.emails[i].value;
+    }
+    
+    image_url = resp.image.url;
+    image_url = image_url.replace("sz=50", "sz=200");
+    document.getElementById("profile-pic").src = image_url;
+    document.getElementById("greeting").innerHTML =  "Welcome back "+ resp.name.givenName + "!";
+  }
+
+
+  </script>
+
+</html>

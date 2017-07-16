@@ -1,0 +1,240 @@
+<html>
+  <head>
+
+    <script src="moment.js"></script>
+    <script type="text/javascript">
+
+
+      // Your Client ID can be retrieved from your project in the Google
+      // Developer Console, https://console.developers.google.com
+      var CLIENT_ID = '423565732644-rrcbgmpj73blska4spik6usin4bo51rl.apps.googleusercontent.com';
+
+      var SCOPES = ["https://www.googleapis.com/auth/calendar"];
+
+      /**
+       * Check if current user has authorized this application.
+       */
+      function checkAuth() {
+        gapi.auth.authorize(
+          {
+            'client_id': CLIENT_ID,
+            'scope': SCOPES.join(' '),
+            'immediate': true
+          }, handleAuthResult);
+      }
+
+      /**
+       * Handle response from authorization server.
+       *
+       * @param {Object} authResult Authorization result.
+       */
+      function handleAuthResult(authResult) {
+        console.log("Handling auth result");
+        var authorizeDiv = document.getElementById('authorize-div');
+//        var createEvent = document.getElementById('create-event-button');
+        var myForm = document.getElementById('event-info');
+        console.log(createEvent);
+        if (authResult && !authResult.error) {
+          // Hide auth UI, then load client library.
+          authorizeDiv.style.display = 'none';
+ //         createEvent.style.display = 'block';
+          var result = {};
+          myForm.addEventListener('submit', function(event)
+          {
+              event.preventDefault();
+              var formData = new FormData(myForm);
+              console.log("Form data: ", formData.entries());
+
+              for (var entry of formData.entries())
+              {
+                  result[entry[0]] = entry[1];
+              }
+              createEvent(result);
+
+          });
+          //   console.log("Does the data persist?", result);
+            
+  //        loadCalendarApi();
+        } else {
+          // Show auth UI, allowing the user to initiate authorization by
+          // clicking authorize button.
+          authorizeDiv.style.display = 'inline';
+        }
+      }
+
+      /**
+       * Initiate auth flow in response to user clicking authorize button.
+       *
+       * @param {Event} event Button click event.
+       */
+      function handleAuthClick(event) {
+        gapi.auth.authorize(
+          {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
+          handleAuthResult);
+        return false;
+      }
+
+
+      function parseEventInfo(result){
+          console.log("Result: "+result);
+
+      }
+      /**
+       * Load Google Calendar client library. List upcoming events
+       * once client library is loaded.
+       */
+      function createEvent(result) {
+ //       event = parseEventInfo(result);
+        var date = new Date();
+        result['start'] = moment(date).format('YYYY-MM-DD') + "T"+result['start'];
+        result['end'] = moment(date).format('YYYY-MM-DD') + "T"+result['end'];
+        start = {};
+        start['dateTime'] = result['start'];
+        start['timeZone'] = 'America/Los_Angeles';
+        end = {};
+        end['dateTime'] = result['end'];
+        end['timeZone'] = 'America/Los_Angeles';
+        result['start'] = start;
+        result['end'] = end;
+        console.log("In createEvent: result = ", result);
+        gapi.client.load('calendar', 'v3', function(result) {
+
+           var event = {
+              'summary': 'Google I/O 2017',
+              'location': '800 Howard St., San Francisco, CA 94103',
+              'description': 'A chance to hear more about Google\'s developer products.',
+              'start': {
+                'dateTime': '2017-01-20T09:00:00-07:00',
+                'timeZone': 'America/Los_Angeles'
+              },
+              'end': {
+                'dateTime': '2017-01-21T17:00:00-07:00',
+                'timeZone': 'America/Los_Angeles'
+              },
+              // 'recurrence': [
+              //   'RRULE:FREQ=DAILY;COUNT=2'
+              // ],
+              // 'attendees': [
+              //   {'email': 'abc@gmail.com'},
+              //   {'email': 'def@gmail.com'}
+              // ],
+              // 'reminders': {
+              //   'useDefault': false,
+              //   'overrides': [
+              //     {'method': 'email', 'minutes': 24 * 60},
+              //     {'method': 'popup', 'minutes': 10}
+              //   ]
+              // }
+            };
+            
+            console.log("Event: ", event);
+            var request = gapi.client.calendar.events.insert({
+              'calendarId': 'primary',
+              'resource': event
+            });
+             
+            request.execute(function(event) {
+              appendPre('Event created: Link to hangouts: ' + event.hangoutLink+ '\n Link to event: '+event.htmlLink);
+              console.log("Event added to Calendar");
+            });
+ 
+
+
+        });
+     
+
+      }
+    
+      /**
+       * Append a pre element to the body containing the given message
+       * as its text node.
+       *
+       * @param {string} message Text to be placed in pre element.
+       */
+      function appendPre(message) {
+          var pre = document.getElementById('output');
+          var textContent = document.createTextNode(message + '\n');
+          pre.appendChild(textContent);
+      }
+
+ function insertEvent() {
+ 
+      var event = {
+  'summary': 'Google I/O 2017',
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': '2017-01-20T09:00:00-07:00',
+    'timeZone': 'America/Los_Angeles'
+  },
+  'end': {
+    'dateTime': '2017-01-21T17:00:00-07:00',
+    'timeZone': 'America/Los_Angeles'
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'abc@gmail.com'},
+    {'email': 'def@gmail.com'}
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10}
+    ]
+  }
+};
+ 
+var request = gapi.client.calendar.events.insert({
+  'calendarId': 'primary',
+  'resource': event
+});
+ 
+request.execute(function(event) {
+  appendPre('Event created: ' + event.htmlLink);
+  console.log("Event added to Calendar");
+});
+ 
+}
+
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth">
+    </script>
+
+ 
+
+  </head>
+  <body>
+    <div id="authorized ">
+        <form id = "event-info">
+            Title:<br>
+            <input type="text" name="summary"><br>
+            Location:<br>
+            <input type="text" name="location"><br>
+            Description:<br>
+            <input type="text" name="description"><br>
+            Start time: <br>
+            <input type="text" name="start"><br> 
+            End time: <br>
+            <input type="text" name="end"><br>
+
+
+
+
+            <input type="submit" value="Submit">
+        </form>
+  <!--      <button id="create-event-button" onclick="createEvent(event)" style="display: none;" >CREATE EVENT</button> -->
+
+    </div>
+
+    <div id="authorize-div" style="display: none">
+      <span>Authorize access to Google Calendar API</span>
+      <!--Button for the user to click to initiate auth sequence -->
+      <button id="authorize-button" onclick="handleAuthClick(event)">AUTHORIZE</button>
+      
+    </div>
+    <pre id="output"></pre>
+  </body>
+</html>

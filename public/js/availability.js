@@ -1,5 +1,4 @@
 availabilityArray = [];
-idCounter = 0;
 
 $('#rangeStart').calendar({
   endCalendar: $('#rangeEnd')
@@ -15,22 +14,19 @@ function clearInputs() {
 }
 
 // Fades in a little message saying that adding the times was successful
-function fadeMessage() {
+function successMessage() {
   $("div.message")
-    .addClass("messageFade")
     .text("Successfully added availability!")
+    .attr('color', 'green')
     .fadeIn(1000)
     .fadeOut(1200);
 }
 
-$("#addThisAvailability").click(function() {
-  var dateInfo = {
-    start: $("#inputStart").val(),
-    end: $("#inputEnd").val(),
-  };
-  clearInputs();
-  fadeMessage();
-  availabilityArray.push(dateInfo);
-  console.log(availabilityArray);
-  // Pull information from the start and end input fields
-});
+// Fades in a message giving an error
+function errorMessage() {
+  $("div.message")
+    .text("Error: start or end fields cannot be empty. Please fix before resubmitting!")
+    .attr('color', 'red')
+    .fadeIn(1000);
+}
+

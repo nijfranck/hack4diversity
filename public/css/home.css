@@ -1,0 +1,28 @@
+
+div.header {
+  background-color: #680000;
+  text-align: center; 
+  color: white;
+  min-height: 200px;
+  width: 100%;
+  display: block;
+  top: 0;
+  padding: 3em;
+}
+
+ div.main-message {
+  text-align: center;
+  margin-top: 5em;
+} 
+
+ div.login-container {
+  padding-top: 3em;
+  color: white;
+  font-weight: bold;
+} 
+
+div.button-wrapper {
+  text-align: center;
+  margin: auto;
+  padding-top: 5em;
+}

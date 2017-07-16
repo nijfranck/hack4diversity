@@ -1,15 +1,15 @@
-div.message {
-  color: green;
+ div.message {
   font-weight: bold;
-  display: block;
 }
 
 button#addThisAvailability {
-  margin-top: 20px;
-  position: absolute;
-  display: block;
+  padding-top: 15px;
 }
 
-div.page-header {
-  height: 700px;
+div.errorMessage {
+  color: red;
+}
+
+div.successMessage {
+  color: green;
 }
