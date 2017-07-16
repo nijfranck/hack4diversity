@@ -7,6 +7,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet" type="text/css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -17,6 +18,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( "#topic" ).selectmenu();
+      $( "#role" ).selectmenu();
+      $( "#langInterview" ).selectmenu();
+      $( "#lang" ).selectmenu();
+    });
+  </script>   
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -58,6 +68,59 @@
               </div>
               <div class="field column">
                 <button id = "add-button" class="ui button" id="addThisAvailability" ng-click="add()">Add This Availability</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="fields centered aligned column"> 
+              <div class="field column">
+                <label for="role">Select a role</label>
+                <fieldset>
+                  <select name="role" id="role">
+                    <option>Interviewer</option>
+                    <option>Interviewee</option>
+                  </select>
+                </fieldset>
+              </div>
+
+              <div class="field column">
+                <label for="topic">Select a topic</label>
+                <fieldset>
+                  <select name="topic" id="topic">
+                    <option>Behavioral</option>
+                    <option>Design</option>
+                    <option selected="selected">Technical</option>
+                    <option>Case Study</option>
+                  </select>
+                </fieldset>
+              </div>
+
+              <div class="field column">
+                <label for="langInterview">Select a language to interview in</label>
+                <fieldset>
+                  <select name="langInterview" id="langInterview">
+                    <option>Python</option>
+                    <option selected="selected">Java</option>
+                    <option>Scala</option>
+                    <option>Javascript</option>
+                    <option>N/A (non-tech interview)</option>
+                  </select>
+                </fieldset>
+              </div>
+
+              <div class="field column">
+                <label for="lang">Select a language</label>
+                <fieldset>
+                  <select name="lang" id="lang">
+                    <option>French</option>
+                    <option>Spanish</option>
+                    <option>Kurundi</option>
+                    <option>Dutch</option>
+                    <option>Portuguese</option>
+                    <option selected="selected">English</option>
+                  </select>
+                </fieldset>
               </div>
             </div>
           </div>

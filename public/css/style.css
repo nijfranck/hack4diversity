@@ -44,8 +44,8 @@ div.ui.centered.aligned.grid.two.column{
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  border-color: red;
-  border-style:solid;
+  /* border-color: red; */
+  /* border-style:solid; */
 
 }
 
