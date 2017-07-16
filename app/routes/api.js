@@ -15,13 +15,13 @@ function matching_event(myevents, eventList) {
 			&& eventList[i].lingua == myevents[j].lingua){
 				console.log('here');
 				console.log(eventList[i]);
-				return eventList[i];
+				return "pclarke";
 
 			}
 		}
 
 	}
-	return null;
+	return "omekam";
 }
 module.exports = function(app, express) {
 
