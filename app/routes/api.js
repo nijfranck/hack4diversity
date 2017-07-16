@@ -8,7 +8,7 @@ function matching_event(myevents, eventList) {
 	for (var j = 0; j < myevents.length; j++){
 		for (var i = 0; i < eventList.length; i++){
 			console.log(eventList[i].starting, myevents[j].starting);
-			if (eventList[i].active && eventList[i].starting == myevents[j].starting){
+			if (eventList[i].active && eventList[i][0].starting == myevents[j][0].starting){
 				console.log(eventList[i]);
 				return eventList[i];
 			}
