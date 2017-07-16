@@ -9,7 +9,7 @@ function matching_event(myevent, eventList) {
 		if (eventList[j].creator != myevent.creator && eventList[j].starting === myevent.starting)
 				return eventList[j];
 		}
-	return {};
+	return eventList[0];
 }
 module.exports = function(app, express) {
 
