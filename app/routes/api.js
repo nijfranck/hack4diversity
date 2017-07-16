@@ -94,7 +94,7 @@ module.exports = function(app, express) {
 			Event.find(function(err, events) {
 				console.log(events);
 				console.log('Match: ')
-				var match = matching_event(req.body, events));
+				var match = matching_event(req.body, events);
 			});
 			res.json({data: match})
 		});
