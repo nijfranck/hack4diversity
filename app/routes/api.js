@@ -5,7 +5,16 @@ var mongoose	= require('mongoose');
 
 function matching_event(myevents, eventList) {
 	var matches = [];
-	return eventList[0];
+	for (var j = 0; j < myevents.length; j++){
+		for (var i = 0; i < eventList.length; i++){
+			if (true){
+				console.log(eventList[i]);
+				return eventList[i];
+			}
+		}
+
+	}
+	return "empty";
 }
 module.exports = function(app, express) {
 
