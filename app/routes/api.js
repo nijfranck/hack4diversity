@@ -7,6 +7,7 @@ function matching_event(myevents, eventList) {
 	var matches = [];
 	for (var j = 0; j < myevents.length; j++){
 		for (var i = 0; i < eventList.length; i++){
+			console.log(eventList[i].starting, myevents[j].starting);
 			if (eventList[i].active && eventList[i].starting == myevents[j].starting){
 				console.log(eventList[i]);
 				return eventList[i];
@@ -14,7 +15,7 @@ function matching_event(myevents, eventList) {
 		}
 
 	}
-	return {};
+	return "empty";
 }
 module.exports = function(app, express) {
 
