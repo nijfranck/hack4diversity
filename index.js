@@ -32,7 +32,8 @@ app.get('/', function(req, res) {
 });
 
 
-app.use(express.static('calendar'))
+app.use(express.static('calendar'));
+app.use(express.static('Authorization'));
 // app.get('/quickstart', function(req, res) {
 // 	res.sendFile(__dirname + '/calendar/run-this-quickstart.html');
 // });
