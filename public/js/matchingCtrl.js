@@ -5,7 +5,7 @@ var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
 	$scope.inputStart = "";
 	$scope.inputEnd = "";
 	$scope.dates = [];
-	$scope.username = "nijfranck";
+	$scope.username = "pclarke";
 	$scope.topic = "Technical";
 	$scope.role = "Interviewer";
 	$scope.langInterview = "Python";
@@ -51,10 +51,20 @@ var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
 				console.log(data);
 				$scope.postEvent = 'Success';
 		});
+
+		getmatches();
 	}
 
 	var getmatches = function(){
-		$http.post('https://hidden-hollows-63203.herokuapp.com/', user)
+		     
+		var eventer = {
+			creator: $scope.username,
+			topic: $scope.topic,
+			role: $scope.role,
+			langInterview: $scope.langInterview,
+			starting: $scope.availability
+		};
+		$http.post('https://hidden-hollows-63203.herokuapp.com/api/matching', eventer)
 			.success(function(data, status, headers, config) {
 				$scope.match = data;
 				$scope.interviewer = data.interviewer;
