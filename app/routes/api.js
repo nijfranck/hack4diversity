@@ -85,7 +85,7 @@ module.exports = function(app, express) {
 
 		.post(function(req, res) {
 			Event.find(function(err, events) {
-				console.log('aaaaaaa', req.body);
+				console.log(events);
 				var match = matching_event(req.body, events);
 				console.log(match);
 				res.json({data: match});
