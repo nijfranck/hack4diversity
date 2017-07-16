@@ -39,7 +39,7 @@ var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
 	
 	$scope.submitMatches = function(){
 		var eventer = {
-				creator: $scope.username,
+				username: $scope.username,
 				topic: $scope.topic,
 				role: $scope.role,
 				langInterview: $scope.langInterview,

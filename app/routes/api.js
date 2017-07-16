@@ -7,15 +7,18 @@ function matching_event(myevents, eventList) {
 	var matches = [];
 	for (var j = 0; j < myevents.length; i++){
 		for (var i = 0; i < eventList.length; i++){
-			if (eventList[i].active && eventList[i]._id != myevent[j]._id 
+			if (eventList[i].active && eventList[i].creator != myevent[j].creator 
 			&& eventList[i].topic == myevent[j].topic 
 			&& eventList[i].starting == myevent[j].starting
-			&& eventList[i].role != myevent[j].role){
-				matches.push(eventList[i]._id)
+			&& eventList[i].role != myevent[j].role
+			&& eventList[i].langInterview == myevent[j].langInterview
+			&& eventList[i].lingua == myevent[j].lingua){
+				return eventList[j];
 			}
 		}
+
 	}
-	return matches;
+	return null;
 }
 module.exports = function(app, express) {
 
@@ -81,5 +84,17 @@ module.exports = function(app, express) {
 
 
 		});
+
+		apiRouter.route('/matching')
+
+		// return all the tentative sessions created
+
+		.post(function(req, res) {
+			console.log(req.body);
+			Event.find(function(err, events) {
+				console.log(events);
+				console.log('Match: ', matching_event(req.body, events));
+			});
+		})
 	return apiRouter;
 }
