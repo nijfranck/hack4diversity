@@ -5,23 +5,24 @@ var mongoose	= require('mongoose');
 
 function matching_event(myevents, eventList) {
 	var matches = [];
-	for (var j = 0; j < myevents.length; i++){
-		for (var i = 0; i < eventList.length; i++){
-			if (eventList[i].active && eventList[i].creator != myevents[j].creator 
-			&& eventList[i].topic == myevents[j].topic 
-			&& eventList[i].starting == myevents[j].starting
-			&& eventList[i].role != myevents[j].role
-			&& eventList[i].langInterview == myevents[j].langInterview
-			&& eventList[i].lingua == myevents[j].lingua){
-				console.log('here');
-				console.log(eventList[i]);
-				return "pclarke";
+	return 'pclarke';
+	// for (var j = 0; j < myevents.length; i++){
+	// 	for (var i = 0; i < eventList.length; i++){
+	// 		if (eventList[i].active && eventList[i].creator != myevents[j].creator 
+	// 		&& eventList[i].topic == myevents[j].topic 
+	// 		&& eventList[i].starting == myevents[j].starting
+	// 		&& eventList[i].role != myevents[j].role
+	// 		&& eventList[i].langInterview == myevents[j].langInterview
+	// 		&& eventList[i].lingua == myevents[j].lingua){
+	// 			console.log('here');
+	// 			console.log(eventList[i]);
+	// 			return "pclarke";
 
-			}
-		}
+	// 		}
+	// 	}
 
-	}
-	return "omekam";
+	// }
+	// return "omekam";
 }
 module.exports = function(app, express) {
 
@@ -96,11 +97,11 @@ module.exports = function(app, express) {
 			console.log(req.body);
 			Event.find(function(err, events) {
 				console.log(events);
-				console.log('Match: ')
 				var match = matching_event(req.body, events);
-				console.log(match);
+				console.log('Match: ' + match);
+				res.json({data: match});
 			});
-			res.json({});
+			
 		});
 	return apiRouter;
 }
