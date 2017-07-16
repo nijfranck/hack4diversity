@@ -1,9 +1,10 @@
+<html>
+  <head>
+    
 
-
-
-<script>
+  <script type="text/javascript">
   var GoogleAuth;
-  var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+  var SCOPE = 'https://www.googleapis.com/auth/calendar';
   function handleClientLoad() {
     // Load the API's client and auth2 modules.
     // Call the initClient function after the modules load.
@@ -77,8 +78,20 @@
   function updateSigninStatus(isSignedIn) {
     setSigninStatus();
   }
+
+</script>
+<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script async defer src="https://apis.google.com/js/api.js" 
+        onload="this.onload=function(){};handleClientLoad()" 
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 
+
+</head>
+
+<body>
 <button id="sign-in-or-out-button"
         style="margin-left: 25px">Sign In/Authorize</button>
 <button id="revoke-access-button"
@@ -86,8 +99,6 @@
 
 <div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script async defer src="https://apis.google.com/js/api.js" 
-        onload="this.onload=function(){};handleClientLoad()" 
-        onreadystatechange="if (this.readyState === 'complete') this.onload()">
-</script>
+</body>
+</html>
+
