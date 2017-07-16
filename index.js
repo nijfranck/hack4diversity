@@ -33,7 +33,7 @@ app.get('/', function(req, res) {
 
 
 app.use(express.static('calendar'));
-app.use('/authorization', express.static(path.join(__dirname + '/authorization')));
+
 // app.get('/quickstart', function(req, res) {
 // 	res.sendFile(__dirname + '/calendar/run-this-quickstart.html');
 // });
