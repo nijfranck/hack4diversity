@@ -3,11 +3,13 @@ var app			= express(); // define our express app
 var bodyParser	= require('body-parser'); 
 var morgan		= require('morgan'); // used to see the requests
 var mongoose	= require('mongoose');
-var port		= process.env.PORT || 8080; // setting the port for the application
+var port		= process.env.PORT || 8000; // setting the port for the application
 
 
-
-mongoose.connect('mongodb://localhost:27017/mongoose_test');
+dev_uri = 'mongodb://localhost:27017/mongoose_test';
+prod_uri = 'mongodb://'+ process.env.MONGODB_PRODUCTION_USER + ':' + process.env.MONGODB_PRODUCTION_PASSWORD + '@ds161162.mlab.com:61162/heroku_qbb06v3z'
+//mongodb://<dbuser>:<dbpassword>@ds161162.mlab.com:61162/heroku_qbb06v3z
+//mongoose.connect(dev_uri);
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
@@ -29,6 +31,12 @@ app.use('/api', apiRoutes);
 app.get('/', function(req, res) {
 	res.send('Welcome to hack4diversity');
 });
+
+
+app.use(express.static('calendar'))
+// app.get('/quickstart', function(req, res) {
+// 	res.sendFile(__dirname + '/calendar/run-this-quickstart.html');
+// });
 
 // START SERVER
 

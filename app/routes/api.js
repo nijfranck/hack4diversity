@@ -3,6 +3,20 @@
 var Event = require('../models/event.js');
 var mongoose	= require('mongoose');
 
+function matching_event(myevents, eventList) {
+	var matches = [];
+	for (var j = 0; j < myevents.length; i++){
+		for (var i = 0; i < eventList.length; i++){
+			if (eventList[i].active && eventList[i]._id != myevent[j]._id 
+			&& eventList[i].topic == myevent[j].topic 
+			&& eventList[i].starting == myevent[j].starting
+			&& eventList[i].role != myevent[j].role){
+				matches.push(eventList[i]._id)
+			}
+		}
+	}
+	return matches;
+}
 module.exports = function(app, express) {
 
 	var apiRouter = express.Router();
@@ -33,21 +47,36 @@ module.exports = function(app, express) {
 
 		// create a tentative session.
 		.post(function(req, res) {
-			var eventer = new Event();
-		
-			eventer.creator = req.body.username;
-			eventer.starting = req.body.starting;
-			eventer.active = true;
-			eventer.topic = req.body.topic;
-			eventer.role = req.body.role;
-			eventer.langInterview = req.body.langInterview;
+			
+			var eventerList = []
+			var times = req.body.startings;
+			
+			for (var i = 0; i < times.length; i++) {
+				var eventer = new Event();
 
- 			eventer.save(function(err) {
-				if (err) {
-					return res.send(err);
-				}
-				res.json({message: "Event posted", event_id: eventer._id})
-			});
+				eventer.creator = req.body.username;
+				eventer.active = true;
+				eventer.topic = req.body.topic;
+				eventer.role = req.body.role;
+				eventer.langInterview = req.body.langInterview;
+				eventer.starting = times[i];
+				eventerList.push(eventer);
+				console.log(eventerList);
+				eventer.save(function(err) {
+					if (err) {
+						return res.send(err);
+					}
+					console.log({message: "Event posted", event_id: eventer._id})
+				});
+			}
+			res.json({Successful: eventerList});
+
+
+ 			
+			// find a matching event that doesn't belong to the user (topic, time)
+			// make sure the event is active
+			// make the others timeslots selected by the user inactive.
+			// pick randomly one among the matching events.
 
 
 		});
