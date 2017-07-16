@@ -1,0 +1,15 @@
+div.message {
+  color: green;
+  font-weight: bold;
+  display: block;
+}
+
+button#addThisAvailability {
+  margin-top: 20px;
+  position: absolute;
+  display: block;
+}
+
+div.page-header {
+  height: 700px;
+}
