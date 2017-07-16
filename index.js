@@ -9,8 +9,7 @@ var port		= process.env.PORT || 8000; // setting the port for the application
 dev_uri = 'mongodb://localhost:27017/mongoose_test';
 prod_uri = 'mongodb://'+ process.env.MONGODB_PRODUCTION_USER + ':' + process.env.MONGODB_PRODUCTION_PASSWORD + '@ds161162.mlab.com:61162/heroku_qbb06v3z'
 //mongodb://<dbuser>:<dbpassword>@ds161162.mlab.com:61162/heroku_qbb06v3z
-mongoose.connect(prod_uri);
-
+mongoose.connect('mongodb://heroku_0v5807wg:qt6e4266hsg460ho8durrlme8h@ds023054.mlab.com:23054/heroku_0v5807wg');
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
