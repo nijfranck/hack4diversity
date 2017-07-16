@@ -7,7 +7,7 @@ function matching_event(myevents, eventList) {
 	var matches = [];
 	for (var j = 0; j < myevents.length; j++){
 		for (var i = 0; i < eventList.length; i++){
-			if (eventList[i].active){
+			if (true){
 				console.log(eventList[i]);
 				return eventList[i];
 			}
