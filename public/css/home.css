@@ -24,20 +24,5 @@ div.header {
 div.button-wrapper {
   text-align: center;
   margin: auto;
-}
-
-div.button-wrapper button {
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-}
-
-button.btn-login {
-  background-color: #008418;  
-}
-
-button.btn-login:hover {
-  background-color: #00510f;
-  color: white;  
-  cursor: pointer;
+  padding-top: 5em;
 }
