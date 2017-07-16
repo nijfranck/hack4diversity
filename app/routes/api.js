@@ -13,7 +13,10 @@ function matching_event(myevents, eventList) {
 			&& eventList[i].role != myevents[j].role
 			&& eventList[i].langInterview == myevents[j].langInterview
 			&& eventList[i].lingua == myevents[j].lingua){
-				return eventList[j];
+				console.log('here');
+				console.log(eventList[i]);
+				return eventList[i];
+
 			}
 		}
 
