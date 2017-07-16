@@ -57,7 +57,7 @@ module.exports = function(app, express) {
 				eventer.langInterview = req.body.langInterview;
 				eventer.lingua = "English";
 				eventer.starting = times[i];
-				debugger;
+				console.log("Times[i] is... " + times[i]);
 				eventerList.push(eventer);
 				console.log(eventerList);
 				eventer.save(function(err) {
