@@ -10,7 +10,7 @@ var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
 	$scope.topic = "Technical";
 	$scope.role = "Interviewer";
 	$scope.langInterview = "Python";
-	$scope.lingua = "";
+	$scope.lingua = "English";
 
 	$scope.fadeIn = false;
 
@@ -68,7 +68,12 @@ var matchingCtrl = app.controller('matchingCtrl', function($scope, $http){
 		$http.post('https://hidden-hollows-63203.herokuapp.com/api/matching', eventer)
 			.success(function(data, status, headers, config) {
 				
-				console.log(data);
+				if ($scope.role == "interviewer")
+					$scope.interviewer = $scope.username;
+				$scope.interviewee = data.creator;
+				$scope.starting = data.starting
+				$scope.matches = true;
+
 		});
 	}
 });
