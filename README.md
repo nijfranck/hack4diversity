@@ -1,4 +1,4 @@
-# hack4diversity
+# InterviewSync
 *Presented at hack4diversity* <br />
 
 [Link to Devpost webpage](https://buildinginclusively2017.devpost.com/)
