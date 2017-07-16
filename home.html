@@ -5,35 +5,97 @@
   <title>Home</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="public/css/styles.css" rel="stylesheet" type="text/css" />
+  <link href="public/css/home.css" rel="stylesheet" type="text/css" />
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+  <script type="text/javascript">
+  (function() {
+    var po = document.createElement('script');
+    po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://plus.google.com/js/client:plusone.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  })();
+  </script>
 </head>
 
 <body>
-  <div class="container-fluid custom-container">
-    <div class="header">
-        <h1>Playing Around with Colors</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="header">
+        <h1>Hack4Diversity 2017</h1>
+        <h3>App Name</h3>
+      </div>
     </div>
 
     <div class="main-content">
       <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-          <h3>Ever wanted to practice interview skills with other peers? Now's your chance to shine. </h3>
+        <!-- Message -->
+        <div class="main-message">
+          <h3>Ever wanted to practice interview skills with other peers? <br/> <strong>Now</strong> is your chance to shine.</h3>
         </div>
-        <div class="col-sm-4"></div>
       </div>
 
-      <div class="login-container">
-        <div class="container">
-          <button type="button" class="btn btn-login">Login</button>
+      <form class="form-signin" role="form">
+        <div id="status"></div>
+        <div class="row"> 
+          <div class="button-wrapper"> 
+            <button class="g-signin " 
+              data-scope="https://www.googleapis.com/auth/calendar"
+              data-requestvisibleactions="http://schemas.google.com/AddActivity"
+              data-clientId="423565732644-62he0mhf3nbh5ce816mldekdnub6tvf4.apps.googleusercontent.com"
+              data-accesstype="offline"
+              data-callback="mycoddeSignIn"
+              data-theme="dark"
+              data-cookiepolicy="single_host_origin">
+            </button>
+          </div>  
         </div>
-      </div>
+      </form>
     </div>
   </div>
 
-  <!-- <script src="js/availability.js"></script> -->
+  <script type="text/javascript">
+    var gpclass = function() {
+    
+      //Defining Class Variables here
+      var response = undefined;
+      return {
+        //Class functions / Objects
+        
+        mycoddeSignIn:function(response){
+          // The user is signed in
+          if (response['access_token']) {
+          
+            //Get User Info from Google Plus API
+            gapi.client.load('plus','v1',this.getUserInformation);
+            
+          } else if (response['error']) {
+            // There was an error, which means the user is not signed in.
+            //alert('There was an error: ' + authResult['error']);
+          }
+        },
+        
+        getUserInformation: function(){
+          var request = gapi.client.plus.people.get( {'userId' : 'me'} );
+          request.execute( function(resp) {
+            var email = resp['emails'].filter(function(v) {
+              return v.type === 'account'; // Filter out the primary email
+            })[0].value;
+            var fName = resp.displayName;
+            $("#inputFullname").val(fName);
+            $("#inputEmail").val(email);
+          });
+        }
+      
+      }; //End of Return
+    };
+    
+    function mycoddeSignIn(gpSignInResponse){
+      gpclass.mycoddeSignIn(gpSignInResponse);
+    }
+	</script>
 </body>
 </html>

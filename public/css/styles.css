@@ -1,4 +1,4 @@
-div.message {
+ div.message {
   color: green;
   font-weight: bold;
   /* display: block; */
@@ -8,35 +8,4 @@ button#addThisAvailability {
   margin-top: 20px;
   position: absolute;
   display: block;
-}
-
-/* home.html styles */
-div.header {
-  background-color: #BD3F32;
-  height: 200px;
-  text-align: center;
-  color: white;
-  vertical-align: middle;
-}
-
-div.custom-container {
-  padding-top: 0;
-  margin-top: 0;
-  padding: 0;
-}
-
-div.login-container {
-  text-align: center;
-}
-
-button.btn-login {
-  background-color: #681100;
-  color: white;
-  font-weight: bold;
-  width: 100px;
-}
-
-button.btn-login:hover {
-  background-color: #844c42;
-  color: white;  
 }
