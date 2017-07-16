@@ -1,0 +1,37 @@
+
+div.header {
+  background-color: #c6dcff;
+  text-align: center; 
+  color: white;
+  min-height: 200px;
+  width: 100%;
+  display: block;
+  top: 0;
+  padding: 3em;
+}
+
+div.main-message {
+  text-align: center;
+}
+
+div.login-container {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 10rem;
+}
+
+button.btn-login {
+  vertical-align: middle;
+  background-color: #008418;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  width: 100px;
+}
+
+button.btn-login:hover {
+  background-color: #00510f;
+  color: white;  
+}
