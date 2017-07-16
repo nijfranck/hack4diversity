@@ -8,6 +8,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" />
   <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
@@ -16,15 +18,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.min.js"></script>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div ng-app="app">
+  <div id = "availability" ng-app="app">
 
     <div class="container" ng-controller="matchingCtrl">
       <div class="ui raised segment">
         <div class="ui two column centered grid page-header middle aligned content">
-          <h1>Your Availability</h1>
+          <h1>When Are You Available?</h1>
         </div>
       </div>
           <br/>
@@ -35,7 +38,7 @@
           <div class="row">
             <div class="fields centered aligned column"> 
               <div class="field column">
-                <label>Start Date</label>
+                <label><font color="white">Start Date</font></label>
                 <div class="ui calendar" id="rangeStart">
                   <div class="ui input left icon">
                     <i class="calendar icon"></i>
@@ -45,7 +48,7 @@
               </div>
 
               <div class="field column">
-                <label>End Date</label>
+                <label><font color="white">End Date</font></label>
                 <div class="ui calendar" id="rangeEnd">
                   <div class="ui input left icon">
                     <i class="calendar icon"></i>
@@ -54,7 +57,7 @@
                 </div>
               </div>
               <div class="field column">
-                <button class="ui button" id="addThisAvailability" ng-click="add()">Add This Availability</button>
+                <button id = "add-button" class="ui button" id="addThisAvailability" ng-click="add()">Add This Availability</button>
               </div>
             </div>
           </div>
@@ -71,7 +74,7 @@
 
       <div class="row">
         <div class="ui centered aligned grid two column">
-          <button class="ui green submit button" ng-click="submitMatches()">Submit Availability</button>
+          <button id = "submit-button" class="ui green submit button" ng-click="submitMatches()">Submit Availability</button>
         </div>
       </div>
       <div class="row"

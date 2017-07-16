@@ -1,0 +1,262 @@
+html, body {
+    background-color: #287186;
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    font-family: 'Merriweather', sans-serif;
+}
+
+div {
+    -webkit-transition-delay: 2s; /* Safari */
+    transition-delay: 2s;
+    -moz-transition-delay: 2s;
+    transition-delay: 2s;
+}
+
+label{
+  font-size:15px;
+  color:white;
+}
+
+#addThisAvailability{
+  margin-top:20px;
+}
+
+.ng-scope{
+  height: 100vh;
+  width:100vw;
+}
+
+div.ui.centered.aligned.grid.two.column{
+  display: flex;
+  margin-top:100px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+#availability{
+  height: 100vh;
+  width:100vw;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border-color: red;
+  border-style:solid;
+
+}
+
+#menu{
+    background-color: #287186;
+    height:100vh;
+    width:100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+h2{
+    /*height:50px;*/
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15pt;
+  color: white;
+}
+
+h1{
+  padding: 20px 20px 20px 20px;
+  font-family: 'Merriweather', serif;
+  font-size: 50pt;
+  color: #287186;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+
+}
+
+button{
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+  padding: 20px 50px 20px 50px;
+  color:black;
+  background-color: white;
+  font-family: 'Merriweather', serif;
+  font-size:14pt;
+
+}
+#sign-in{
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+  padding: 20px 50px 20px 50px;
+  color:black;
+  background-color: white;
+  font-family: 'Merriweather', serif;
+  font-size:14pt;
+
+}
+
+
+
+button:hover{
+  transition-duration: 0.25s;
+  background-color: black;
+  color: white;
+  font-family: 'Merriweather', serif;
+  font-size:14pt;
+}
+
+#submit-button{
+ 
+  border-color: black;
+  border-style: solid;
+  color:black;
+  background-color: white;
+  font-family: 'Merriweather', serif;
+
+}
+
+
+
+#submit-button:hover{
+  transition-duration: 0.25s;
+  background-color: black;
+  color: white;
+  font-family: 'Merriweather', serif;
+}
+
+#add-button{
+  margin-top: 20px;
+  border-color: black;
+  border-style: solid;
+  color:black;
+  background-color: white;
+  font-family: 'Merriweather', serif;
+
+}
+
+
+
+#add-button:hover{
+  transition-duration: 0.25s;
+  background-color: black;
+  color: white;
+  font-family: 'Merriweather', serif;
+}
+
+#sign-in:hover{
+  transition-duration: 0.25s;
+  background-color: black;
+  color: white;
+  font-family: 'Merriweather', serif;
+  font-size:14pt;
+}
+
+
+#hideMe {
+    height:100vh;
+    width:100vw;
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+#loading{
+  display:block;
+  width:100vw;
+  height:100vh;
+  object-fit: cover;
+}
+
+
+#schedule{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#profile{
+    max-height: 100%;
+    max-width: 100%;
+}
+/*#response{
+  
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  justify-content: space-around;
+
+}*/
+
+#response{
+    display:flex;
+    width:50%;
+    height:100vh;
+    align-items:center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: space-around;
+
+}
+
+#profile-pic{
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 100%;
+}
+
+#greeting{
+  padding: 20px 20px 20px 20px;
+  font-family: 'Merriweather', serif;
+  font-size: 50pt;
+  color: white;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+}
+
+
+#gConnect{
+  -webkit-transition: width 2s, height 4s; /* Safari */
+  transition: width 2s, height 4s;
+  width:100vw;
+  height:100vh;
+  object-fit: cover;
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  justify-content: space-around;
+      -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    transition: all 2s;
+
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+
