@@ -7,12 +7,12 @@ function matching_event(myevents, eventList) {
 	var matches = [];
 	for (var j = 0; j < myevents.length; i++){
 		for (var i = 0; i < eventList.length; i++){
-			if (eventList[i].active && eventList[i].creator != myevent[j].creator 
-			&& eventList[i].topic == myevent[j].topic 
-			&& eventList[i].starting == myevent[j].starting
-			&& eventList[i].role != myevent[j].role
-			&& eventList[i].langInterview == myevent[j].langInterview
-			&& eventList[i].lingua == myevent[j].lingua){
+			if (eventList[i].active && eventList[i].creator != myevents[j].creator 
+			&& eventList[i].topic == myevents[j].topic 
+			&& eventList[i].starting == myevents[j].starting
+			&& eventList[i].role != myevents[j].role
+			&& eventList[i].langInterview == myevents[j].langInterview
+			&& eventList[i].lingua == myevents[j].lingua){
 				return eventList[j];
 			}
 		}
